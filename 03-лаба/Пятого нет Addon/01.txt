@@ -1,0 +1,30 @@
+1) Переписать запросы 3,4,5 из Лабораторной работы №2 используя оператор JOIN. Если в Лабораторной работе №2 был уже использован оператор JOIN, то написать аналогичные запросы без его использования.
+Слоняры
+Б9122-09.03.02ацс
+25.12.2024
+
+USE Northwind -- 3 -- New
+SELECT Categories.CategoryName AS Название_категории, AVG(Products.UnitPrice) AS Средняя_цена_категории
+FROM Products, Categories
+WHERE Categories.CategoryID = Products.CategoryID
+GROUP BY CategoryName;
+--Slonyari
+
+USE Northwind -- 4 -- New
+SELECT COUNT(*) AS Количество_продуктов
+FROM Products AS Main
+WHERE Main.UnitPrice > (SELECT AVG(UnitPrice) FROM Products AS AVG_Products
+WHERE AVG_Products.CategoryID = Main.CategoryID)
+--Slonyari
+
+USE Northwind; -- 5 -- New
+SELECT Categories.CategoryName AS Категория, COUNT(*) AS "Количество продуктов"
+FROM Products AS Main, Categories
+WHERE Main.CategoryID = Categories.CategoryID
+    AND Main.UnitPrice > (
+        SELECT AVG(UnitPrice)
+        FROM Products AS AVG_Products
+        WHERE AVG_Products.CategoryID = Main.CategoryID)
+GROUP BY Categories.CategoryName
+ORDER BY "Количество продуктов" ASC;
+--Slonyari

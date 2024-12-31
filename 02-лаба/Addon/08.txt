@@ -1,0 +1,12 @@
+8) Вывести идентификатор компании, название компании, страну в которой она находится, количество наименований продуктов, которые они поставляют и среднюю цену этих продуктов.
+Слоняры
+Б9122-09.03.02ацс
+10.12.2024
+
+USE Northwind -- 8
+SELECT Main.SupplierID AS "ИД", Main.CompanyName AS "Компания", Main.Country AS "Страна", COUNT(DISTINCT Products.ProductName) AS "Количество Наименований", AVG(Products.UnitPrice) AS "Средняя цена"
+FROM Suppliers AS Main
+JOIN Products ON Products.SupplierID = Main.SupplierID
+GROUP BY Main.SupplierID, Main.Country, Main.CompanyName
+ORDER BY "Средняя цена" ASC
+--Slonyari

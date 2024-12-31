@@ -1,0 +1,15 @@
+5) Вычислите П.4 для каждой категории товаров. Оформите таблицу вывода. Отсортируйте результат по количеству.
+Слоняры
+Б9122-09.03.02ацс
+10.12.2024
+
+USE Northwind -- 5
+SELECT Categories.CategoryName AS Категория, COUNT(*) AS "Количество продуктов"
+FROM Products
+JOIN (SELECT CategoryID AS Категория, AVG(UnitPrice) AS "Средняя стоимость ед. продукции" 
+FROM Products AS AVG_Products GROUP BY CategoryID) AS AVG_prices ON Products.CategoryID = AVG_prices.Категория
+JOIN Categories ON Products.CategoryID = Categories.CategoryID
+WHERE Products.UnitPrice > "Средняя стоимость ед. продукции"
+GROUP BY CategoryName
+ORDER BY "Количество продуктов" ASC
+--Slonyari

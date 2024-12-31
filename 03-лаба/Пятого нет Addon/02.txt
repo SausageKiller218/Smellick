@@ -1,0 +1,18 @@
+2) Посчитать обороты по покупателям. Customers – Покупатели, Orders – Счета, Order Details – Содержимое счета, UnitPrice – Цена единицы, Quantity – Количество, Discount – Скидка. В запросе использовать Join.
+Слоняры
+Б9122-09.03.02ацс
+22.12.2024
+
+--slonyari
+USE Northwind;
+SELECT 
+    Customers.CompanyName AS "Компания", 
+    SUM("Order Details".UnitPrice * "Order Details".Quantity * (1 - "Order Details".Discount)) AS "Оборот"
+FROM 
+    Customers 
+JOIN 
+    Orders ON Customers.CustomerID = Orders.CustomerID
+JOIN 
+    "Order Details" ON Orders.OrderID = "Order Details".OrderID
+GROUP BY 
+    Customers.CompanyName;

@@ -1,0 +1,7 @@
+5) Количество типов?
+Слоняры
+Б9122-09.03.02ацс
+15.11.2024
+
+USE Northwind;
+SELECT COUNT(DISTINCT xtype) FROM sysobjects as parent;

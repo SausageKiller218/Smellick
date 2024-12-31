@@ -1,0 +1,7 @@
+6) Количество объектов каждого типа?
+Слоняры
+Б9122-09.03.02ацс
+15.11.2024
+
+USE Northwind;
+SELECT xtype, COUNT(*) AS count FROM sysobjects as parent GROUP BY xtype;

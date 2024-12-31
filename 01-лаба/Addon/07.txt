@@ -1,0 +1,7 @@
+7) Количество объектов каждого типа, не относящихся к объектам с типом U и не являющихся объектами с типом U?
+Слоняры
+Б9122-09.03.02ацс
+15.11.2024
+
+USE Northwind;
+SELECT xtype, COUNT(*) AS ObjectCount FROM sysobjects as child WHERE child.xtype <> 'U' AND child.parent_obj NOT IN (SELECT id FROM sysobjects as parent WHERE xtype = 'U') GROUP BY xtype;

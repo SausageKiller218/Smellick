@@ -1,0 +1,8 @@
+6) В скольких странах располагаются поставщики товаров?
+Слоняры
+Б9122-09.03.02ацс
+10.12.2024
+
+USE Northwind -- 6 SELECT COUNT(DISTINCT Country) AS "Количество Стран"
+FROM Suppliers
+--Slonyari

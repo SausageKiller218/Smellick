@@ -1,0 +1,21 @@
+4) Найти покупателей с оборотами выше средних.
+Слоняры
+Б9122-09.03.02ацс
+22.12.2024
+
+USE Northwind; -- Slonyari
+SELECT Customers.CompanyName AS "Компания", 
+       SUM(orderdet.UnitPrice*orderdet.Quantity-(orderdet.UnitPrice*orderdet.Quantity)*discount) AS "Оборот"
+FROM Customers 
+JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+JOIN "Order Details" as orderdet ON Orders.OrderID = orderdet.OrderID
+GROUP BY Customers.CompanyName
+HAVING SUM(orderdet.UnitPrice*orderdet.Quantity-(orderdet.UnitPrice*orderdet.Quantity)*discount) > 
+	(SELECT AVG(t1.customer_turnover) 
+	FROM (SELECT DISTINCT CompanyName, SUM("order details".UnitPrice*"order details".Quantity-("order details".UnitPrice*"order details".Quantity)*discount)
+AS customer_turnover
+FROM Customers as cust2
+JOIN Orders as ord2 ON ord2.CustomerID=cust2.CustomerID
+JOIN "Order details" ON ord2.OrderID="Order details".OrderID 
+GROUP BY CompanyName) AS t1)
+ORDER BY "Оборот"

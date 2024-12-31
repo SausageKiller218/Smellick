@@ -1,0 +1,20 @@
+3) Вывести 10 Покупателей с максимальными оборотами
+Слоняры
+Б9122-09.03.02ацс
+22.12.2024
+
+--slonyari
+USE Northwind;
+SELECT TOP 10
+    Customers.CompanyName AS "Компания",
+    SUM([Order Details].UnitPrice * [Order Details].Quantity * (1 - [Order Details].Discount)) AS "Оборот"
+FROM
+    Customers
+JOIN
+    Orders ON Customers.CustomerID = Orders.CustomerID
+JOIN
+    [Order Details] ON Orders.OrderID = [Order Details].OrderID
+GROUP BY
+    Customers.CompanyName
+ORDER BY
+    "Оборот" DESC;

@@ -1,0 +1,12 @@
+4) Сколько имеется товаров, чья стоимость единицы продукции превышает среднюю стоимость единицы в соответствующей группе?
+Слоняры
+Б9122-09.03.02ацс
+10.12.2024
+
+USE Northwind -- 4
+SELECT COUNT(*) AS Количество_продуктов
+FROM Products AS Main
+JOIN (SELECT CategoryID AS Категория, AVG(UnitPrice) AS "Средняя стоимость ед. продукции" 
+FROM Products AS AVG_products GROUP BY CategoryID) AS AVG_prices ON Main.CategoryID = AVG_prices.Категория 
+WHERE UnitPrice > "Средняя стоимость ед. продукции"
+--Slonyari

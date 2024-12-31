@@ -1,0 +1,10 @@
+3) Вычислите среднюю стоимость единицы продукции по каждой категории. Создайте русские заголовки в столбцах вывода.
+Слоняры
+Б9122-09.03.02ацс
+10.12.2024
+
+USE Northwind -- 3
+SELECT Categories.CategoryName AS Название_категории, AVG(Products.UnitPrice) AS Средняя_цена_категории
+FROM Products JOIN Categories ON Categories.CategoryID = Products.CategoryID
+GROUP BY CategoryName;
+--Slonyari

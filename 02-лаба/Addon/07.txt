@@ -1,0 +1,12 @@
+7) Сколько наименований товаров поступает из каждой страны? Оформите таблицу вывода, отсортируйте результат по убыванию количества товаров.
+Слоняры
+Б9122-09.03.02ацс
+10.12.2024
+
+USE Northwind -- 7
+SELECT Main.Country AS "Страна", COUNT(DISTINCT Products.ProductName) AS "Количество Наименований"
+FROM Suppliers AS Main
+JOIN Products ON Products.SupplierID = Main.SupplierID
+GROUP BY Main.Country
+ORDER BY "Количество Наименований" ASC
+--Slonyari

@@ -1,0 +1,7 @@
+8) Количество объектов, чье имя начинается с символов sys?
+Слоняры
+Б9122-09.03.02ацс
+15.11.2024
+
+USE Northwind;
+SELECT COUNT(*) FROM sysobjects as parent WHERE name LIKE 'sys%';

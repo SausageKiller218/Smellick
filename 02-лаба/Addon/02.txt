@@ -1,0 +1,11 @@
+2) Сколько видов товаров в каждой категории?
+Слоняры
+Б9122-09.03.02ацс
+10.12.2024
+
+USE Northwind -- 2
+SELECT Categories.CategoryName, COUNT(DISTINCT ProductName) AS Count 
+FROM Products 
+JOIN Categories ON Categories.CategoryID = Products.CategoryID
+GROUP BY Categories.CategoryName;
+--Slonyari

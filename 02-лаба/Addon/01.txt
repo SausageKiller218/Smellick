@@ -1,0 +1,8 @@
+1) Сколько имеется категорий товаров в таблице Categories?
+Слоняры
+Б9122-09.03.02ацс
+10.12.2024
+
+USE Northwind; -- 1
+SELECT COUNT(DISTINCT CategoryName) AS Count FROM Categories;
+--Slonyari
