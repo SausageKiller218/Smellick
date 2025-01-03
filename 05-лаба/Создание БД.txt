@@ -1,0 +1,19 @@
+--Создать баду данных на основе мастера
+
+USE master;
+GO
+CREATE DATABASE Laba05
+ON
+( NAME = Laba05_dat,
+    FILENAME = 'C:\Program Files\Microsoft SQL Server\MSSQL\Data\Laba05dat.mdf',
+    SIZE = 10,
+    MAXSIZE = 50,
+    FILEGROWTH = 5 )
+LOG ON
+( NAME = Laba05_log,
+    FILENAME = 'C:\Program Files\Microsoft SQL Server\MSSQL\Data\Laba05log.ldf',
+    SIZE = 5MB,
+    MAXSIZE = 25MB,
+    FILEGROWTH = 5MB ) ;
+GO
+
