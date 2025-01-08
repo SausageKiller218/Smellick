@@ -1,0 +1,12 @@
+5) Найти компании, которые совершали заказ каждый квартал.
+Слоняры
+Б9122-09.03.02ацс
+23.12.2024
+
+--slonyari
+USE Northwind;
+SELECT Customers.CompanyName
+FROM Customers 
+JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+GROUP BY Customers.CompanyName
+HAVING COUNT(DISTINCT DATEPART(QUARTER, Orders.OrderDate)) = 4;
