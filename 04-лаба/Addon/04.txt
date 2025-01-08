@@ -1,0 +1,13 @@
+4) Написать запрос, который не будет использовать outer join, а будет имитировать его через union, и выдавать те же данные в том же порядке.
+Слоняры
+Б9122-09.03.02ацс
+31.12.2024
+
+SELECT person.name,ocupation.ocupied 
+FROM person,ocupation 
+WHERE ocupation.name = person.name
+UNION --Slonyari
+SELECT person.name,NULL 
+FROM person
+WHERE person.name NOT IN (SELECT name FROM ocupation)
+

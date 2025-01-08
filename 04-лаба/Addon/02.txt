@@ -1,0 +1,14 @@
+2) Написать запрос, который в таблицу nums, уже содержащую числа 1...N, вставит числа N+1...2N.
+Слоняры
+Б9122-09.03.02ацс
+31.12.2024
+
+BEGIN -- Slonyari
+DECLARE @max INT SELECT @max = MAX(i)+1 FROM nums 
+DECLARE @end INT SET @end = 2*@max-2
+While @max <= @end
+    BEGIN
+    INSERT INTO nums(i) VALUES(@max)
+    SET @max = @max + 1
+    END
+END

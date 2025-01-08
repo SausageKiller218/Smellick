@@ -1,0 +1,10 @@
+3) Написать запрос, возвращающий таблицу с сортировкой по алфавиту в виде:
+Слоняры
+Б9122-09.03.02ацс
+31.12.2024
+
+SELECT (SELECT COUNT(*) FROM person as child WHERE child.name <= parent.name) AS '№',
+	name AS Имя FROM person as parent
+ORDER BY name ASC
+--Slonyari -- 3
+

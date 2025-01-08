@@ -1,0 +1,12 @@
+1) Написать batch для удаления созданных таблиц.
+Слоняры
+Б9122-09.03.02ацс
+31.12.2024
+
+BEGIN
+USE pubs; -- Slonyari
+ALTER TABLE tab1 DROP CONSTRAINT tab1fk
+ALTER TABLE tab2 DROP CONSTRAINT tab2fk
+DROP TABLE tab1
+DROP TABLE tab2
+END

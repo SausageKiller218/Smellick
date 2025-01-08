@@ -1,0 +1,12 @@
+7) Создать таблицу и ограничить для неё права на изменения для всех пользователей.
+Слоняры
+Б9122-09.03.02ацс
+31.12.2024
+
+BEGIN -- Slonyari --
+USE pubs
+CREATE TABLE syslogs(operation varchar(160) not null)
+DENY UPDATE, DELETE ON syslogs TO PUBLIC
+END
+
+

@@ -1,0 +1,31 @@
+5) Выполнить запрос из задания 2 столько раз, чтобы в таблице nums было не менее 2000 записей. Написать запрос, выбирающий простые числа из таблицы nums.
+Слоняры
+Б9122-09.03.02ацс
+31.12.2024
+
+BEGIN -- Slonyari -- 5 решение
+USE pubs
+part1:
+DECLARE @max INT SELECT @max = MAX(i)+1 FROM nums as fr
+DECLARE @end INT SET @end = 2*@max-2 
+    WHILE @max <= @end
+        BEGIN
+        INSERT INTO nums(i) VALUES(@max)
+        SET @max = @max + 1
+        END
+IF (@max < 2000)
+	BEGIN
+	GOTO part1
+	END
+END
+
+BEGIN
+SELECT n.i
+FROM nums n
+WHERE n.i >1
+AND NOT EXISTS (
+	SELECT 1
+	FROM nums d
+	WHERE d.i > 1 AND d.i < n.i AND n.i % d.i = 0
+)
+END
