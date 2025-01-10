@@ -4,6 +4,7 @@
 31.12.2024
 
 BEGIN -- Slonyari
+USE pubs;
 DECLARE @max INT SELECT @max = MAX(i)+1 FROM nums 
 DECLARE @end INT SET @end = 2*@max-2
 While @max <= @end

@@ -3,6 +3,7 @@
 Б9122-09.03.02ацс
 31.12.2024
 
+USE pubs;
 SELECT (SELECT COUNT(*) FROM person as child WHERE child.name <= parent.name) AS '№',
 	name AS Имя FROM person as parent
 ORDER BY name ASC

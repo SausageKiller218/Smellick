@@ -3,6 +3,7 @@
 Б9122-09.03.02ацс
 31.12.2024
 
+USE pubs;
 BEGIN
 USE pubs; -- Slonyari
 ALTER TABLE tab1 DROP CONSTRAINT tab1fk

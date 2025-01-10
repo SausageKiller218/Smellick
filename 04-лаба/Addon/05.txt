@@ -3,6 +3,7 @@
 Б9122-09.03.02ацс
 31.12.2024
 
+USE pubs;
 BEGIN -- Slonyari -- 5 решение
 USE pubs
 part1:

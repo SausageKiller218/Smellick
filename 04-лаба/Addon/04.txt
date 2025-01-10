@@ -3,6 +3,7 @@
 Б9122-09.03.02ацс
 31.12.2024
 
+USE pubs;
 SELECT person.name,ocupation.ocupied 
 FROM person,ocupation 
 WHERE ocupation.name = person.name
