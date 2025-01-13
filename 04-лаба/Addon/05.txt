@@ -3,23 +3,7 @@
 Б9122-09.03.02ацс
 31.12.2024
 
-USE pubs;
-BEGIN -- Slonyari -- 5 решение
-USE pubs
-part1:
-DECLARE @max INT SELECT @max = MAX(i)+1 FROM nums as fr
-DECLARE @end INT SET @end = 2*@max-2 
-    WHILE @max <= @end
-        BEGIN
-        INSERT INTO nums(i) VALUES(@max)
-        SET @max = @max + 1
-        END
-IF (@max < 2000)
-	BEGIN
-	GOTO part1
-	END
-END
-
+--Slonyari
 BEGIN
 SELECT n.i
 FROM nums n
